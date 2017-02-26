@@ -1,0 +1,22 @@
+template(name='favorites')
+    .ui.text.container.segment
+        +favorite_bands
+        +favorite_festivals
+        
+template(name='favorite_bands')        
+    h2.ui.header Favorite Bands
+    .ui.divided.vertical.list
+        each favorite_bands
+            .item
+                a(href="/band/view/#{_id}") #{title} 
+                +favorite_button
+            
+            
+template(name='favorite_festivals')        
+    h2.ui.header Favorite Festivals
+    .ui.divided.vertical.list
+        each favorite_festivals
+            .item
+                a(href="/festival/view/#{_id}") #{title} 
+                +favorite_button
+            

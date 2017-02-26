@@ -1,0 +1,29 @@
+template(name='bands')
+    .ui.container
+        #add_band.ui.basic.button
+            i.plus.icon
+            |Add band
+        .ui.items
+            each bands
+                +band_item
+            
+            
+            
+template(name='band_item')
+    .ui.item
+        .content
+            a(href="/band/view/#{_id}")
+                .image
+                    img.ui.large.centered.image(src="{{c.url image_id }}")
+                h1.ui.header #{title}
+            .meta
+                each tags
+                    .ui.button.tag(class=tag_class) #{this}
+            // .description
+            //     |!{description}
+            // +voting
+            +favorite_button
+            if can_edit
+                a(href="/band/edit/#{_id}").ui.basic.button
+                    i.pencil.icon.icon
+                    |Edit band
